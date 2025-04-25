@@ -1,0 +1,214 @@
+import time
+import os
+import random
+from random import randint
+print ("Hi! I am a bot, your robot assistant")
+print ("")
+user_name = input("What is your name?")
+print ("welcome " + user_name + ".")
+time.sleep(1)
+finished = False
+while finished != True:
+  print ("things i can do:- \n 1> Make a shopping list \n 2> Do some math \n 3>Play some games \n 4>Exit")
+  print("")
+  time.sleep(2)
+  #ask user his choice from 1 to 4
+  bot_task = input("what would you like to do today \n enter your choice in number")
+  
+  #if chose 1> (make a shopping list)
+  if bot_task == "1" or bot_task == "one" or bot_task == "One":
+    os.system("cls")
+    create = True
+    shopping = []
+    print ("")
+    print ("Great let's create a Shopping list," + user_name + "!!")
+    time.sleep(1)
+    print("")
+    print("type exit once list is complete")
+    
+    no = 1
+    while create != False:
+      time.sleep(1)
+      print("")
+      item=input("what is the item number" + str(no) + "?")
+      if item == "Exit" or item == "exit":
+        print ("you have " + str(len(shopping)) + "items in  your list")
+        print (shopping)
+        create = False
+        time.sleep(4)
+        print("moving to start menu")
+        time.sleep(2)
+        os.system("cls")
+      else:
+        shopping.append(item)
+        no = no+1
+        create = True
+      
+      
+  #if choose 2>(do some math)
+  if bot_task == "2" or bot_task == "two" or bot_task == "One":
+    os.system("cls")
+    math = True
+    print ("")
+    print ("great!! lets do some math, " + user_name + "!!")
+    time.sleep(1)
+    print ("")
+    print("type exit ounce done with maths")
+    print ("")
+    print("")
+    
+    
+    while math !=False: 
+      print ("you can do various arithematic operations here like :- \n 1>addition, \n 2>subbtraction, \n 3>multiplication , \n 4>division , \n 5>calculate the average of 2 numbers , \n 6>calculate area of circle, \n 7>find the hcf of 2 numbers")
+      print("")
+      time.sleep(2)
+      choice = input("what do you want to do? \n  enter your choice in number")
+      if choice == "Exit" or choice == "exit":
+        print("bye😭😭😭😭😭")
+        math = False
+        print("")
+        print("moving to start menu")
+        time.sleep(3)
+        os.system("cls")
+      elif choice == "1" or choice == "one" or choice == "One":
+        os.system("cls")
+        num1 = int(input("enter the first number"))
+        num2 = int(input("enter the second number"))
+        print ("the sum of two number is ", num1+num2)
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "2" or choice == "two" or choice == "Two":
+        os.system("cls")
+        num1 = int(input("enter the first number"))
+        num2 = int(input("enter the second number"))
+        print ("the difference of the numbers is ", num1-num2)
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "3" or choice == "three" or choice == "Three":
+        os.system("cls")
+        num1 = int(input("enter the fist number"))
+        num2 = int(input("enter the second number"))
+        print ("The product of the two numbers is ", num1*num2)
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "4" or choice == "four" or choice == "Four":
+        os.system("cls")
+        num1 = int(input("enter the first number"))
+        num2 = int(input("enter the second number"))
+        print ("the quotient of the two numbers is ", num1//num2)
+        os.system("cls")
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "5" or choice == "five" or choice == "Five":
+        os.system("cls")
+        num1 = int(input("enter the first number"))
+        num2 = int(input("enter the second number"))
+        print("the average of the two numbers is:", (num1+num2)/2)
+        time.sleep(2)
+        os.system("cls")
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "6" or choice == "six" or choice == "Six": 
+        os.system("cls")
+        r = int(input("enter the radius of the circle"))
+        pi=22/7
+        print("the area of the circle is:", pi*(r*r))
+        time.sleep(2)
+        os.system("cls")
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+      elif choice == "7" or choice == "seven" == "Seven":
+        os.system("cls")
+        n1 = int(input("enter the first number"))
+        n2 = int(input("enter the second number"))
+        if n1>=n2:
+          n3 = n2
+        else:
+          n3=n1
+        for i in range(n3,1,-1):
+          if n1%i==0 and n2%i==0:
+            print ("the hcf of the 2 values",n1,n2,"is",i)
+            break
+        time.sleep(3)
+        os.system("cls")
+        print("")
+        print("moving back to selection menu if you want to go back to main menu type exit")
+        time.sleep(4)
+        os.system("cls")
+  # if chosen 3> (play some games)
+  
+  if bot_task == "3" or bot_task == "three" or bot_task == "Three":
+    os.system("cls")
+    game = True
+    print("")
+    print ("nice lets play some games " + user_name + "!!")
+    time.sleep(1)
+    print("")
+    print ("type exit ounce done playing games")
+    print("")
+    print("")
+    
+    while game != False:
+      print("which type of game would you like to play?")
+      print("") 
+      print("")
+      print("you can play a variety of games like, \n 1>number guessing game \n 2>rock paper scissor \n ")
+      print("")
+      print("please enter your choice in number")      
+      time.sleep(2)
+      choice = input("which game do you want to play?")
+      if choice == "Exit" or choice == "exit":
+        os.system("cls")
+        print("bye it was fun playing games with you")
+        print("")
+        print("moving to start menu...")
+        time.sleep(2)
+        game = False
+      
+      elif choice == "1" or choice == "one" or choice == "One":
+        num=random.randint(1,6)
+        while True:
+          guess_number=int(input("enter a number from 1 to 6"))
+          if guess_number>num:
+            print("prediction is higher")
+          elif guess_number<num:
+            print("the prediction is lower")
+          else:
+            print("your guess was correct")
+            break
+      elif choice == "2" or choice == "two" or "Two":
+        lst=["rock","paper","scissor"]
+        p1=random.choice(lst)
+        p2=input("enter your choice rock, paper or scissor")
+        if p1==p2:
+          print ("it's a tie")
+        elif p1 == "rock" and p2 == "paper":
+          print ("yay!! you beat me")
+        elif p1== "rock" and p2=="scissor":
+          print ("hurray!! i beat you")
+        elif p1 == "paper" and p2 == "scissor":
+          print ("yay!! you beat me")
+        elif p1 == "paper" and p2 == "rock":
+          print ("hurray!! i beat you")
+        elif p1== "scissor" and p2 == "rock":
+          print ("yay!! you beat me")       
+        elif p1 == "scissor" and p2 == "paper":
+          print ("yay!! i beat you")
+  elif bot_task == "4" or bot_task == "exit" or bot_task == "Exit":
+    os.system("cls")
+    print("")
+    print("thanks for being with me it was nice interacting with you")
+    time.sleep(2)
+    finished = True
