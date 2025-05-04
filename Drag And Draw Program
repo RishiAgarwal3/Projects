@@ -1,3 +1,5 @@
+#we can draw using by dragging the button with mouse pointer
+
 import turtle
 t= turtle.Turtle()
 s= turtle.Screen()
