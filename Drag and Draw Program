@@ -1,4 +1,5 @@
-#we can draw using by dragging the button with mouse pointer
+#hold down mouse button 1 while drawing
+
 
 import turtle
 t= turtle.Turtle()
