@@ -1,0 +1,96 @@
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
+XP_FILE = "xp.txt"
+
+# Define your tasks (Add your criteria + XP later)
+task_table = [
+    ("Read a book for 1 hour", 10),
+    ("Physics 2 hour", 30),
+    ("maths 2 hour", 25),
+    ("95% in a subject in exams", 200),
+    ("2 hours of collegelab for the day", 40),
+    ("100% in a subject", 500),
+    ("completing leetcode(4) + github(6)", 25),
+    ("Do Venita ma'am class", 40),
+    ("Any other subject 1 hour", 10),
+    ("Practice guitar 30 mins", 15),
+]
+
+# Define your rewards (Add your criteria + XP cost later)
+reward_table = [
+    ("Watch Anime (per ep)", 30),
+    ("Play PS4 for 1 day", 800),
+    ("Watch a movie", 135),
+    ("Play games on computer (per hour)", 50),
+    ("Watch sitcom (per ep)", 40),
+    ("Watch Youtube (3 vids or 1 hour)",75)
+]
+
+# Load XP
+def load_xp():
+    try:
+        with open(XP_FILE, 'r') as f:
+            return int(f.read())
+    except:
+        return 0
+
+# Save XP
+def save_xp(xp):
+    with open(XP_FILE, 'w') as f:
+        f.write(str(xp))
+
+def update_xp():
+    try:
+        xp_to_add = simpledialog.askinteger("XP Update", "Enter XP to add (or negative to subtract):")
+        if xp_to_add is None:
+            return
+        current_xp = load_xp()
+        current_xp += xp_to_add
+        save_xp(current_xp)
+        xp_label.config(text=f"Total XP: {current_xp}")
+        messagebox.showinfo("Success", f"XP updated! New total: {current_xp}")
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
+
+# Build UI
+root = tk.Tk()
+root.title("Study Gamification Tracker")
+root.geometry("800x400")  # Make window larger
+
+# XP label
+current_xp = load_xp()
+xp_label = tk.Label(root, text=f"Total XP: {current_xp}", font=("Arial", 16))
+xp_label.pack(pady=10)
+
+# Frame to hold tables side-by-side
+tables_frame = tk.Frame(root)
+tables_frame.pack()
+
+# ---- Task Table ----
+task_frame = tk.LabelFrame(tables_frame, text="Tasks", padx=10, pady=10)
+task_frame.pack(side='left', padx=10, pady=10, fill='both', expand=True)
+
+tk.Label(task_frame, text="Task", font=("Arial", 12, "bold"), width=25).grid(row=0, column=0)
+tk.Label(task_frame, text="XP", font=("Arial", 12, "bold"), width=10).grid(row=0, column=1)
+
+for i, (task, xp) in enumerate(task_table, start=1):
+    tk.Label(task_frame, text=task, width=25, anchor='w').grid(row=i, column=0)
+    tk.Label(task_frame, text=str(xp), width=10).grid(row=i, column=1)
+
+# ---- Reward Table ----
+reward_frame = tk.LabelFrame(tables_frame, text="Rewards", padx=10, pady=10)
+reward_frame.pack(side='right', padx=10, pady=10, fill='both', expand=True)
+
+tk.Label(reward_frame, text="Reward", font=("Arial", 12, "bold"), width=25).grid(row=0, column=0)
+tk.Label(reward_frame, text="XP Cost", font=("Arial", 12, "bold"), width=10).grid(row=0, column=1)
+
+for i, (reward, cost) in enumerate(reward_table, start=1):
+    tk.Label(reward_frame, text=reward, width=25, anchor='w').grid(row=i, column=0)
+    tk.Label(reward_frame, text=str(cost), width=10).grid(row=i, column=1)
+
+# Update XP button
+btn = tk.Button(root, text="Update XP", command=update_xp)
+btn.pack(pady=10)
+
+root.mainloop()
