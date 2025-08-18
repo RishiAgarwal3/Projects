@@ -3,7 +3,7 @@ from tkinter import simpledialog, messagebox
 
 XP_FILE = "xp.txt"
 
-# Define your tasks (Add your criteria + XP later)
+# Define your tasks (Add your criteria + XP later) or Use what i have 
 task_table = [
     ("Read a book for 1 hour", 10),
     ("Physics 2 hour", 30),
